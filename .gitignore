@@ -1,0 +1,14 @@
+# Pycharm
+.idea/
+
+# Venv
+venv/
+
+# Data Base
+db.sqlite3
+
+# Python
+__pycache__/
+
+# Django project
+migrations/
