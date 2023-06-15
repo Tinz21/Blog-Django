@@ -2,14 +2,14 @@
 
 # Django
 from django.db import models
-from django.contrib.auth.models import AbstractUser, PermissionsMixin
+from django.contrib.auth.models import AbstractUser
 from django.core.validators import RegexValidator
 
 # Utilities
 from blog.utils.models import BaseModel
 
 
-class User(BaseModel, AbstractUser, PermissionsMixin):
+class User(BaseModel, AbstractUser):
     """ User Model """
 
     email = models.EmailField(
