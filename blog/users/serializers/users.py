@@ -3,11 +3,13 @@
 # Django
 from django.core.validators import RegexValidator
 from django.contrib.auth import password_validation
+from django.contrib.auth import authenticate
 
 # Django Rest Framework
 from rest_framework import serializers
 from rest_framework.serializers import ModelSerializer
 from rest_framework.validators import UniqueValidator
+from rest_framework_simplejwt.tokens import RefreshToken
 
 # Models
 from blog.users.models import User
@@ -52,3 +54,15 @@ class UserSignupSerializer(serializers.Serializer):
             raise serializers.ValidationError("Passwords not match")
         password_validation.validate_password(password)
         return data
+
+    def create(self, data):
+        data.pop('password_confirmation')
+        user = User.objects.create(**data)
+        return user
+
+    def update(self, instance, validated_data):
+        instance.email = validated_data.get('email', instance.email)
+        instance.username = validated_data.get('username', instance.username)
+        instance.first_name = validated_data.get('first_name', instance.first_name)
+        instance.phone_number = validated_data.get('phone_number', instance.phone_number)
+        return instance
