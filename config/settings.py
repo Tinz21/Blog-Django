@@ -47,6 +47,7 @@ THIRD_APPS = [
 ]
 LOCAL_APPS = [
     'blog.users.apps.UsersAppConfig',
+    'blog.posts.apps.PostsAppConfig',
 ]
 INSTALLED_APPS = DJANGO_APPS + THIRD_APPS + LOCAL_APPS
 
@@ -138,7 +139,7 @@ REST_FRAMEWORK = {
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     ),
     'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.IsAuthenticated',
+        'rest_framework.permissions.AllowAny',
     ]
 }
 
