@@ -48,6 +48,7 @@ THIRD_APPS = [
 LOCAL_APPS = [
     'blog.users.apps.UsersAppConfig',
     'blog.posts.apps.PostsAppConfig',
+    'blog.comments.apps.CommentsAppConfig',
 ]
 INSTALLED_APPS = DJANGO_APPS + THIRD_APPS + LOCAL_APPS
 
@@ -117,7 +118,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Bogota'
 
 USE_I18N = True
 
