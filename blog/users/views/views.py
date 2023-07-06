@@ -11,6 +11,9 @@ from rest_framework.permissions import (
     AllowAny,
     IsAuthenticated)
 
+# Utilities
+from blog.users.permissions import IsOwnerOrAdmin
+
 # Serializers
 from blog.users.serializers.users import (
     UserSignupSerializer,
@@ -39,7 +42,7 @@ class UsersApiView(APIView):
     Get and update users information
     """
 
-    permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated, IsOwnerOrAdmin]
 
     def get(self, request, username):
         users = get_object_or_404(User, username=username)
