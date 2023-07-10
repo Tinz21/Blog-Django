@@ -1,7 +1,6 @@
 """ Users permissions """
 
 from rest_framework import permissions
-from rest_framework_simplejwt.views import TokenViewBase
 
 
 class IsOwnerOrAdmin(permissions.BasePermission):
