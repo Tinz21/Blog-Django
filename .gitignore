@@ -3,6 +3,7 @@
 
 # Venv
 venv/
+.env
 
 # Data Base
 db.sqlite3
